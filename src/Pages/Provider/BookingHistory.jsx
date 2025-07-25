@@ -1,98 +1,99 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
 
-function BookingHistory() {
-  const navigate = useNavigate();
+const dummyBookings = [
+  {
+    id: "BK001",
+    user: "Rohan Sharma",
+    turf: "Dream Turf Arena",
+    date: "2025-07-23",
+    time: "6:00 PM – 7:00 PM",
+    payment: "₹800",
+    status: "Completed",
+  },
+  {
+    id: "BK002",
+    user: "Anita Desai",
+    turf: "SkyPlay Turf",
+    date: "2025-07-22",
+    time: "7:00 PM – 8:00 PM",
+    payment: "₹1000",
+    status: "Cancelled",
+  },
+  {
+    id: "BK003",
+    user: "Vikas Patel",
+    turf: "TurfZone Arena",
+    date: "2025-07-20",
+    time: "8:00 AM – 9:00 AM",
+    payment: "₹700",
+    status: "Completed",
+  },
+];
 
-  const [history, setHistory] = useState([
-    {
-      id: 1,
-      user: 'Raj Verma',
-      turf: 'Turf Galaxy',
-      date: '2025-07-20',
-      time: '06:00 AM - 07:00 AM',
-      price: 500,
-      status: 'Completed',
-    },
-    {
-      id: 2,
-      user: 'Priya Shah',
-      turf: 'Turf King',
-      date: '2025-07-22',
-      time: '07:00 AM - 08:00 AM',
-      price: 600,
-      status: 'Approved',
-    },
-    {
-      id: 3,
-      user: 'Amit Desai',
-      turf: 'Turf Supreme',
-      date: '2025-07-24',
-      time: '08:00 AM - 09:00 AM',
-      price: 700,
-      status: 'Rejected',
-    },
-  ]);
+const BookingHistory = () => {
+  const [bookings, setBookings] = useState([]);
+
+  useEffect(() => {
+    // Simulate fetching from API
+    setTimeout(() => setBookings(dummyBookings), 300);
+  }, []);
 
   return (
-    <div className="min-h-screen bg-white px-6 py-10">
-      {/* Back to Dashboard Button */}
-      <button
-        onClick={() => navigate('/provider/dashboard')}
-        className="mb-6 text-sm text-indigo-600 hover:underline"
-      >
-        ← Back to Dashboard
-      </button>
+    <div className="min-h-screen bg-white text-gray-800 p-6 md:p-12">
+      <div className="max-w-6xl mx-auto">
+        <h1 className="text-3xl font-semibold mb-6">Booking History</h1>
 
-      <h2 className="text-2xl font-semibold mb-6 text-center">Booking History</h2>
-
-      <div className="overflow-x-auto max-w-5xl mx-auto">
-        <table className="min-w-full border rounded-xl shadow">
-          <thead className="bg-gray-100">
-            <tr>
-              <th className="py-3 px-4 text-left">User</th>
-              <th className="py-3 px-4 text-left">Turf</th>
-              <th className="py-3 px-4 text-left">Date</th>
-              <th className="py-3 px-4 text-left">Time</th>
-              <th className="py-3 px-4 text-left">Price</th>
-              <th className="py-3 px-4 text-left">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {history.map((booking) => (
-              <tr key={booking.id} className="border-t">
-                <td className="py-2 px-4">{booking.user}</td>
-                <td className="py-2 px-4">{booking.turf}</td>
-                <td className="py-2 px-4">{booking.date}</td>
-                <td className="py-2 px-4">{booking.time}</td>
-                <td className="py-2 px-4">₹{booking.price}</td>
-                <td className="py-2 px-4">
-                  <span
-                    className={`px-2 py-1 rounded-full text-sm ${
-                      booking.status === 'Completed'
-                        ? 'bg-green-100 text-green-700'
-                        : booking.status === 'Approved'
-                        ? 'bg-yellow-100 text-yellow-700'
-                        : 'bg-red-100 text-red-700'
-                    }`}
-                  >
-                    {booking.status}
-                  </span>
-                </td>
-              </tr>
-            ))}
-            {history.length === 0 && (
+        <div className="overflow-x-auto shadow border rounded-2xl bg-gray-50">
+          <table className="min-w-full divide-y divide-gray-200 text-sm">
+            <thead className="bg-indigo-100 text-indigo-800">
               <tr>
-                <td colSpan="6" className="text-center py-6 text-gray-500">
-                  No booking history available.
-                </td>
+                <th className="px-6 py-3 text-left font-semibold">Booking ID</th>
+                <th className="px-6 py-3 text-left font-semibold">User</th>
+                <th className="px-6 py-3 text-left font-semibold">Turf</th>
+                <th className="px-6 py-3 text-left font-semibold">Date</th>
+                <th className="px-6 py-3 text-left font-semibold">Time</th>
+                <th className="px-6 py-3 text-left font-semibold">Payment</th>
+                <th className="px-6 py-3 text-left font-semibold">Status</th>
               </tr>
-            )}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="divide-y divide-gray-100 bg-white">
+              {bookings.length === 0 ? (
+                <tr>
+                  <td colSpan="7" className="text-center py-6 text-gray-500">
+                    No booking history available.
+                  </td>
+                </tr>
+              ) : (
+                bookings.map((booking) => (
+                  <tr key={booking.id}>
+                    <td className="px-6 py-4">{booking.id}</td>
+                    <td className="px-6 py-4">{booking.user}</td>
+                    <td className="px-6 py-4">{booking.turf}</td>
+                    <td className="px-6 py-4">{booking.date}</td>
+                    <td className="px-6 py-4">{booking.time}</td>
+                    <td className="px-6 py-4 font-medium">{booking.payment}</td>
+                    <td className="px-6 py-4">
+                      <span
+                        className={`inline-block px-2 py-1 rounded-xl text-xs font-semibold ${
+                          booking.status === "Completed"
+                            ? "bg-green-100 text-green-700"
+                            : booking.status === "Cancelled"
+                            ? "bg-red-100 text-red-600"
+                            : "bg-gray-100 text-gray-700"
+                        }`}
+                      >
+                        {booking.status}
+                      </span>
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
-}
+};
 
 export default BookingHistory;

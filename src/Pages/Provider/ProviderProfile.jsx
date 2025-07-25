@@ -1,152 +1,155 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
 
-function ProviderProfile() {
-  const navigate = useNavigate();
-
-  // Initial data (would usually come from backend API)
-  const [profile, setProfile] = useState({
-    id: 1,
-    name: 'Turf Owner',
-    email: 'provider@example.com',
-    contact: '9876543210',
-    turfName: 'Turf Galaxy',
-    turfLocation: 'Pune, Maharashtra',
-    turfImage: '', // URL or file name
-    description: 'A high-quality turf with excellent facilities.',
-    availableFrom: '06:00',
-    availableTo: '22:00',
-    pricePerHour: 500,
+const ProviderProfile = () => {
+  const [provider, setProvider] = useState({
+    businessName: "Dream Turf Arena",
+    ownerName: "John Doe",
+    email: "turf@example.com",
+    phone: "+91 9876543210",
+    location: "Pune, Maharashtra",
+    logo: null,
+    website: "",
+    description: "Premium 5-a-side turf with night lighting and cafeteria.",
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setProfile({ ...profile, [name]: value });
+    const { name, value, type, files } = e.target;
+    setProvider((prev) => ({
+      ...prev,
+      [name]: type === "file" ? files[0] : value,
+    }));
   };
 
-  const handleUpdate = () => {
-    // Send profile to backend via API (axios/fetch)
-    console.log('Updated Profile:', profile);
-    alert('Profile updated successfully!');
-  };
-
-  const handleDelete = () => {
-    // Call delete API
-    if (window.confirm('Are you sure you want to delete your profile?')) {
-      console.log('Profile deleted!');
-      alert('Profile deleted');
-      navigate('/'); // redirect to homepage or logout
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Updated Provider Info:", provider);
+    // API integration goes here
   };
 
   return (
-    <div className="min-h-screen bg-white px-6 py-10">
-      <button
-        onClick={() => navigate('/provider/dashboard')}
-        className="mb-6 text-sm text-indigo-600 hover:underline"
-      >
-        ← Back to Dashboard
-      </button>
+    <div className="min-h-screen bg-white text-gray-800 p-6 md:p-12">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-3xl font-semibold mb-6">Provider Profile</h1>
 
-      <h2 className="text-2xl font-semibold mb-6 text-center">Provider Profile</h2>
+        <form onSubmit={handleSubmit} className="space-y-8">
+          {/* Logo Upload */}
+          <div className="bg-gray-50 p-6 rounded-2xl shadow-sm border">
+            <h2 className="text-xl font-semibold mb-4">Logo / Image</h2>
+            <div className="flex flex-col md:flex-row items-center gap-4">
+              <div className="w-32 h-32 bg-gray-200 rounded-xl flex items-center justify-center overflow-hidden">
+                {provider.logo ? (
+                  <img
+                    src={URL.createObjectURL(provider.logo)}
+                    alt="Logo Preview"
+                    className="object-cover w-full h-full"
+                  />
+                ) : (
+                  <span className="text-gray-500 text-sm">No image</span>
+                )}
+              </div>
+              <input
+                type="file"
+                name="logo"
+                accept="image/*"
+                onChange={handleChange}
+                className="border p-2 rounded-xl"
+              />
+            </div>
+          </div>
 
-      <div className="max-w-3xl mx-auto bg-gray-50 p-6 rounded-xl shadow space-y-4">
-        {/* Input Fields */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <input
-            type="text"
-            name="name"
-            value={profile.name}
-            onChange={handleChange}
-            placeholder="Provider Name"
-            className="border px-4 py-2 rounded"
-          />
-          <input
-            type="email"
-            name="email"
-            value={profile.email}
-            onChange={handleChange}
-            placeholder="Email"
-            className="border px-4 py-2 rounded"
-          />
-          <input
-            type="text"
-            name="contact"
-            value={profile.contact}
-            onChange={handleChange}
-            placeholder="Contact Number"
-            className="border px-4 py-2 rounded"
-          />
-          <input
-            type="text"
-            name="turfName"
-            value={profile.turfName}
-            onChange={handleChange}
-            placeholder="Turf Name"
-            className="border px-4 py-2 rounded"
-          />
-          <input
-            type="text"
-            name="turfLocation"
-            value={profile.turfLocation}
-            onChange={handleChange}
-            placeholder="Turf Location"
-            className="border px-4 py-2 rounded"
-          />
-          <input
-            type="number"
-            name="pricePerHour"
-            value={profile.pricePerHour}
-            onChange={handleChange}
-            placeholder="Price Per Hour"
-            className="border px-4 py-2 rounded"
-          />
-          <input
-            type="time"
-            name="availableFrom"
-            value={profile.availableFrom}
-            onChange={handleChange}
-            placeholder="Available From"
-            className="border px-4 py-2 rounded"
-          />
-          <input
-            type="time"
-            name="availableTo"
-            value={profile.availableTo}
-            onChange={handleChange}
-            placeholder="Available To"
-            className="border px-4 py-2 rounded"
-          />
-        </div>
+          {/* Basic Info */}
+          <div className="bg-gray-50 p-6 rounded-2xl shadow-sm border">
+            <h2 className="text-xl font-semibold mb-4">Profile Details</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium mb-1">Business Name</label>
+                <input
+                  name="businessName"
+                  value={provider.businessName}
+                  onChange={handleChange}
+                  className="w-full p-2 border rounded-xl"
+                  placeholder="Turf Name"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Owner Name</label>
+                <input
+                  name="ownerName"
+                  value={provider.ownerName}
+                  onChange={handleChange}
+                  className="w-full p-2 border rounded-xl"
+                  placeholder="Owner"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={provider.email}
+                  onChange={handleChange}
+                  className="w-full p-2 border rounded-xl"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Phone</label>
+                <input
+                  name="phone"
+                  value={provider.phone}
+                  onChange={handleChange}
+                  className="w-full p-2 border rounded-xl"
+                />
+              </div>
+              <div className="md:col-span-2">
+                <label className="block text-sm font-medium mb-1">Location</label>
+                <input
+                  name="location"
+                  value={provider.location}
+                  onChange={handleChange}
+                  className="w-full p-2 border rounded-xl"
+                />
+              </div>
+            </div>
+          </div>
 
-        {/* Description */}
-        <textarea
-          name="description"
-          value={profile.description}
-          onChange={handleChange}
-          placeholder="Turf Description"
-          className="border px-4 py-2 rounded w-full"
-          rows={4}
-        />
+          {/* Optional Business Info */}
+          <div className="bg-gray-50 p-6 rounded-2xl shadow-sm border">
+            <h2 className="text-xl font-semibold mb-4">Additional Information</h2>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium mb-1">Website</label>
+                <input
+                  name="website"
+                  value={provider.website}
+                  onChange={handleChange}
+                  className="w-full p-2 border rounded-xl"
+                  placeholder="https://yourturf.in"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Description</label>
+                <textarea
+                  name="description"
+                  value={provider.description}
+                  onChange={handleChange}
+                  rows="4"
+                  className="w-full p-2 border rounded-xl"
+                  placeholder="Add details about your turf, facilities, rules..."
+                />
+              </div>
+            </div>
+          </div>
 
-        {/* Update + Delete Buttons */}
-        <div className="flex justify-between mt-4">
           <button
-            onClick={handleUpdate}
-            className="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700"
+            type="submit"
+            className="px-6 py-2 bg-indigo-600 text-white rounded-2xl hover:bg-indigo-700 transition-all"
           >
-            Update Profile
+            Save Profile
           </button>
-          <button
-            onClick={handleDelete}
-            className="text-red-600 hover:underline"
-          >
-            Delete Profile
-          </button>
-        </div>
+        </form>
       </div>
     </div>
   );
-}
+};
 
 export default ProviderProfile;
