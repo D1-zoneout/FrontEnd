@@ -1,11 +1,11 @@
 import React from 'react'
 
-function ProviderHome() {
+function TurfDetails() {
   return (
     <div>
+      
     </div>
   )
 }
 
-export default ProviderHome
-  
+export default TurfDetails
