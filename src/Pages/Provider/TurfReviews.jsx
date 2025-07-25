@@ -1,93 +1,79 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const dummyReviews = [
-  {
-    id: 1,
-    user: "Ritika Jain",
-    turf: "Dream Turf Arena",
-    date: "2025-07-20",
-    rating: 5,
-    comment: "Excellent turf and lighting! Great experience.",
-  },
-  {
-    id: 2,
-    user: "Aman Kapoor",
-    turf: "SkyPlay Turf",
-    date: "2025-07-18",
-    rating: 4,
-    comment: "Nice turf, but washroom needs maintenance.",
-  },
-  {
-    id: 3,
-    user: "Priya Nair",
-    turf: "TurfZone Arena",
-    date: "2025-07-15",
-    rating: 3,
-    comment: "Okay turf, slots often run late.",
-  },
-];
+function TurfReviews() {
+  const navigate = useNavigate();
 
-const TurfReviews = () => {
-  const [reviews, setReviews] = useState([]);
+  const [reviews, setReviews] = useState([
+    {
+      id: 1,
+      user: 'Raj Verma',
+      turf: 'Turf Galaxy',
+      rating: 5,
+      message: 'Excellent turf, clean and well-maintained!',
+      date: '2025-07-20',
+    },
+    {
+      id: 2,
+      user: 'Priya Shah',
+      turf: 'Turf King',
+      rating: 4,
+      message: 'Good lighting and staff support. Will book again.',
+      date: '2025-07-22',
+    },
+    {
+      id: 3,
+      user: 'Amit Desai',
+      turf: 'Turf Supreme',
+      rating: 2,
+      message: 'Ground was wet and slippery. Needs maintenance.',
+      date: '2025-07-24',
+    },
+  ]);
 
-  useEffect(() => {
-    // Replace this with actual API call later
-    setTimeout(() => {
-      setReviews(dummyReviews);
-    }, 300);
-  }, []);
-
-  const renderStars = (rating) => {
-    return (
-      <div className="flex text-yellow-500">
-        {Array.from({ length: 5 }).map((_, idx) => (
-          <svg
-            key={idx}
-            xmlns="http://www.w3.org/2000/svg"
-            className={`h-4 w-4 ${
-              idx < rating ? "fill-current" : "text-gray-300"
-            }`}
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.284 3.948a1 1 0 00.95.69h4.148c.969 0 1.371 1.24.588 1.81l-3.36 2.44a1 1 0 00-.364 1.118l1.284 3.948c.3.921-.755 1.688-1.54 1.118l-3.36-2.44a1 1 0 00-1.176 0l-3.36 2.44c-.784.57-1.838-.197-1.54-1.118l1.284-3.948a1 1 0 00-.364-1.118L2.08 9.375c-.783-.57-.38-1.81.588-1.81h4.148a1 1 0 00.95-.69l1.284-3.948z" />
-          </svg>
-        ))}
-      </div>
-    );
+  const renderStars = (count) => {
+    return '★'.repeat(count) + '☆'.repeat(5 - count);
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-800 p-6 md:p-12">
-      <div className="max-w-5xl mx-auto">
-        <h1 className="text-3xl font-semibold mb-6">Turf Reviews</h1>
+    <div className="min-h-screen bg-white px-6 py-10">
+      {/* Back Button */}
+      <button
+        onClick={() => navigate('/provider/dashboard')}
+        className="mb-6 text-sm text-indigo-600 hover:underline"
+      >
+        ← Back to Dashboard
+      </button>
 
-        {reviews.length === 0 ? (
-          <p className="text-gray-500">No reviews available.</p>
-        ) : (
-          <div className="space-y-6">
-            {reviews.map((review) => (
-              <div
-                key={review.id}
-                className="border rounded-2xl p-4 bg-gray-50 shadow-sm"
-              >
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                  <div>
-                    <p className="font-semibold text-lg text-indigo-700">{review.user}</p>
-                    <p className="text-sm text-gray-500">
-                      {review.turf} · {review.date}
-                    </p>
-                  </div>
-                  <div className="mt-2 md:mt-0">{renderStars(review.rating)}</div>
-                </div>
-                <p className="text-gray-700">{review.comment}</p>
+      <h2 className="text-2xl font-semibold mb-6 text-center">Turf Reviews</h2>
+
+      <div className="space-y-4 max-w-4xl mx-auto">
+        {reviews.map((review) => (
+          <div
+            key={review.id}
+            className="border rounded-lg shadow p-4 bg-gray-50"
+          >
+            <div className="flex justify-between items-center mb-2">
+              <div>
+                <p className="font-semibold text-gray-800">
+                  {review.user} on <span className="text-indigo-600">{review.turf}</span>
+                </p>
+                <p className="text-sm text-gray-500">{review.date}</p>
               </div>
-            ))}
+              <div className="text-yellow-500 font-bold text-lg">
+                {renderStars(review.rating)}
+              </div>
+            </div>
+            <p className="text-gray-700">{review.message}</p>
           </div>
+        ))}
+
+        {reviews.length === 0 && (
+          <p className="text-center text-gray-500">No reviews available.</p>
         )}
       </div>
     </div>
   );
-};
+}
 
 export default TurfReviews;

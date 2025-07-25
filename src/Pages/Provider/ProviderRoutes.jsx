@@ -3,24 +3,36 @@ import { Routes , Route } from 'react-router-dom';
 import ProviderLogin from "./ProviderLogin";
 import ProviderSignUp from './ProviderSignUp';
 import AddTurf from './AddTurf';
-import ProviderProfile from './ProviderProfile';
+import TurfList from './TurfList';
+import EditTurf from './EditTurf';
+import TurfDetails from './TurfDetails';
+import ManageSlots from './ManageSlots';
+import ManagePricing from './ManagePricing';
+import BookingRequests from './BookingRequests';
 import BookingHistory from './BookingHistory';
 import PaymentManagement from './PaymentManagement';
-import TurfAnalytics from './TurfAnalytics';
 import TurfReviews from './TurfReviews';
+import TurfAnalytics from './TurfAnalytics';
+import ProviderProfile from './ProviderProfile';
+import ProviderDashboard from './ProviderDashboard';
 function ProviderRoutes() {
   return (
    <Routes>
-    
-      <Route path="/turf-analytics" element={<TurfAnalytics />} />
-      <Route path="/turf-reviews" element={<TurfReviews />} />
-      <Route path="/payment-management" element={<PaymentManagement />} />
-      <Route path="/login" element={<ProviderLogin />} />
-      <Route path="/register" element={<ProviderSignUp />} />
-      <Route path="/add-turf" element={<AddTurf />} />
-      <Route path="/profile" element={<ProviderProfile />} />
-      <Route path="/booking-history" element={<BookingHistory />} />
-      {/* Add more provider-specific routes here */}
+     <Route path="login" element={<ProviderLogin />} />
+     <Route path="register" element={<ProviderSignUp />} />
+     <Route path="add-turf" element={<AddTurf />} />
+        <Route path="turfs" element={<TurfList/>} />
+        <Route path="turfs/:turfId/edit" element={<EditTurf/>} />
+        <Route path="turfs/:turfId" element={<TurfDetails/>} />
+        <Route path="manage-slots/:turfId" element={<ManageSlots/>} />
+        <Route path="manage-pricing/:turfId" element={<ManagePricing/>} />
+        <Route path="booking-requests" element={<BookingRequests/>} />
+        <Route path="booking-history" element={<BookingHistory/>} />
+        <Route path="payments" element={<PaymentManagement/>} />
+        <Route path="reviews" element={<TurfReviews/>} />
+        <Route path="analytics" element={<TurfAnalytics/>} />
+        <Route path="profile" element={<ProviderProfile/>} />
+        <Route path = 'dashboard' element = {<ProviderDashboard/>}/>
    </Routes>
   )
 }
