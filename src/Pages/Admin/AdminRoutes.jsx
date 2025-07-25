@@ -10,25 +10,27 @@ import ReviewModeration from './ReviewModeration'
 import AdminAnalytics from './AdminAnalytics'
 import Notification from './Notification'
 import AdminSettings from './AdminSettings'
+import AdminLogin from './AdminLogin'
 
 function AdminRoutes() {
   return (
     <div>
-       <Routes>
-          <Route path='dashboard' element={<AdminDashboard/>} />
-         <Route path="/admin/dashboard" element={<AdminDashboard />} />
-         <Route path="/admin/users" element={<ManageUsers/>} />
-<Route path="/admin/providers" element={<ManageProvider />} />
-<Route path="/admin/approve-turfs" element={<ApproveTurfs />} />
-<Route path="/admin/bookings" element={<ViewAllbookings />} />
-<Route path="/admin/payments" element={<ViewPayment />} />
-<Route path="/admin/review-moderation" element={<ReviewModeration />} />
-<Route path="/admin/analytics" element={<AdminAnalytics />} />
-<Route path="/admin/notifications" element={<Notification />} />
-<Route path="/admin/settings" element={<AdminSettings/>} />
-
-            
-                </Routes>
+      <h1>Admin route</h1>
+      <Routes>
+        {/* <Route path='dashboard' element={<AdminDashboard/>} /> */}
+        <Route path="/dashboard" element={<AdminDashboard />} />
+        <Route path="/users" element={<ManageUsers/>} />
+        <Route path="/providers" element={<ManageProvider />} />
+        <Route path="/approve-turfs" element={<ApproveTurfs />} />
+        <Route path="/bookings" element={<ViewAllbookings />} />
+        <Route path="/payments" element={<ViewPayment />} />
+        <Route path="/review-moderation" element={<ReviewModeration />} />
+        <Route path="/analytics" element={<AdminAnalytics />} />
+        <Route path="/notifications" element={<Notification />} />
+        <Route path="/settings" element={<AdminSettings />} />
+        <Route path="/login" element={<AdminLogin />} />
+        {/* Add more admin-specific routes here */}
+      </Routes>
     </div>
   )
 }
