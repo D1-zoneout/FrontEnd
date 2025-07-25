@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import AdminRoutes from './Pages/Admin/AdminRoutes'
 
+import UserRoutes from './Pages/User/UserRoutes';
 
 function App() {
   const [count, setCount] = useState(0)
