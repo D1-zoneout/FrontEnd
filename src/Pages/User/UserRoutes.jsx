@@ -1,47 +1,35 @@
-import React from 'react'
-import { Routes, Route, Outlet } from 'react-router-dom';
-import UserSidebar from '../../Components/User/UserSidebar';
-import Notifications from './Notifications'
-import ContactUs from './ContactUs'
-import Payments from './Payments'
-import UserReviews from './UserReviews';
+import { Routes, Route } from 'react-router-dom';
+
+import UserRegister from './UserRegister';
+import UserLogin from './UserLogin';
+import HomePage from './HomePage';
 import ExploreTurfs from './ExploreTurfs';
-import MyProfile from './MyProfile'
-import EditProfile from './EditProfile';
-import UserDashboard from './UserDashboard';
+import TurfDetailsPage from './TurfDetailsPage';
 import BookTurfPage from './BookTurfPage';
-import CancelBooking from './CancelBooking';
 import MyBookings from './MyBookings';
+import CancelBooking from './CancelBooking';
+import MyProfile from './MyProfile';
+import EditProfile from './EditProfile';
 
-function UserRoutes() {
+
+export default function UserRoutes() {
+
+
   return (
-    <Routes>
-         <Route
-        path="/"
-        element={
-          <div className="flex">
-            <UserSidebar />
-            <main className="flex-1 p-4 bg-gray-50 min-h-screen">
-              <Outlet />
-            </main>
-          </div>
-        }
-      >
-        <Route path="dashboard" element={<UserDashboard />} />
-        <Route path="book" element={<BookTurfPage />} />
-        <Route path="cancel" element={<CancelBooking />} />
-        <Route path="contact" element={<ContactUs />} />
-        <Route path="explore" element={<ExploreTurfs />} />
-        <Route path="bookings" element={<MyBookings />} />
-        <Route path="payments" element={<Payments />} />
-        <Route path="reviews" element={<UserReviews />} />
-        <Route path="notifications" element={<Notifications />} />
-        <Route path="profile" element={<MyProfile />} />
-        <Route path="edit-profile" element={<EditProfile />} />
-        <Route path="*" element={<UserDashboard />} />
-      </Route>
-    </Routes>
-  )
+   
+            <Routes>
+              <Route pa/>
+              <Route path="/" element={<HomePage />} />
+              <Route path="register" element={<UserRegister />} />
+              <Route path="login" element={<UserLogin />} />
+              <Route path="explore" element={<ExploreTurfs />} />
+              <Route path="turf/:id" element={<TurfDetailsPage />} />
+              <Route path="book/:id" element={<BookTurfPage />} />
+              <Route path="my-bookings" element={<MyBookings />} />
+              <Route path="cancel/:id" element={<CancelBooking />} />
+              <Route path="profile" element={<MyProfile />} />
+              <Route path="profile/edit" element={<EditProfile />} />
+            </Routes>
+          
+  );
 }
-
-export default UserRoutes
