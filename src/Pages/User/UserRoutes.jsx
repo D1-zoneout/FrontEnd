@@ -7,14 +7,17 @@ import ContactUs from './ContactUs'
 import Payments from './Payments'
 import UserReviews from './UserReviews';
 import ExploreTurfs from './ExploreTurfs';
-import MyProfile from './MyProfile'
-import EditProfile from './EditProfile';
-import UserDashboard from './UserDashboard';
+import TurfDetailsPage from './TurfDetailsPage';
 import BookTurfPage from './BookTurfPage';
-import CancelBooking from './CancelBooking';
 import MyBookings from './MyBookings';
+import CancelBooking from './CancelBooking';
+import MyProfile from './MyProfile';
+import EditProfile from './EditProfile';
 
-function UserRoutes() {
+
+export default function UserRoutes() {
+
+
   return (
     <Routes>
          <Route
@@ -46,5 +49,3 @@ function UserRoutes() {
     </Routes>
   )
 }
-
-export default UserRoutes
