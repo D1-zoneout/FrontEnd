@@ -14,7 +14,7 @@ function ProviderSidebar() {
         <Link to="/provider/payments" className="py-2 hover:text-indigo-600">Payment Management</Link>
         <Link to="/provider/reviews" className="py-2 hover:text-indigo-600">Turf Reviews</Link>
         <Link to="/provider/turfs" className="py-2 hover:text-indigo-600">Turf List</Link>
-        <Link to="/provider/turf-analytics" className="py-2 hover:text-indigo-600">Analytics</Link>
+        <Link to="/provider/analytics" className="py-2 hover:text-indigo-600">Analytics</Link>
       </nav>
     </aside>
   );

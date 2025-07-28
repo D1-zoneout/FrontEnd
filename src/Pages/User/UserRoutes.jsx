@@ -2,6 +2,7 @@ import React from 'react'
 import { Routes, Route, Outlet } from 'react-router-dom';
 import UserSidebar from '../../Components/User/UserSidebar';
 import Notifications from './Notifications'
+import UserLogin from './UserLogin'
 import ContactUs from './ContactUs'
 import Payments from './Payments'
 import UserReviews from './UserReviews';
@@ -28,6 +29,8 @@ function UserRoutes() {
         }
       >
         <Route path="dashboard" element={<UserDashboard />} />
+        <Route path="login" element={<UserLogin />} />
+        <Route path="signup" element={<UserLogin />} />
         <Route path="book" element={<BookTurfPage />} />
         <Route path="cancel" element={<CancelBooking />} />
         <Route path="contact" element={<ContactUs />} />

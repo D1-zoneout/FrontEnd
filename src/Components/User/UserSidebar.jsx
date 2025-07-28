@@ -11,7 +11,7 @@ const links = [
   { label: 'Notifications', path: '/user/notifications' },
   { label: 'Profile', path: '/user/profile' },
   { label: 'Contact Us', path: '/user/contact' },
-  { label: 'Logout', path: '/login' },
+  { label: 'Logout', path: '/user/login' },
 ];
 
 const UserSidebar = () => {

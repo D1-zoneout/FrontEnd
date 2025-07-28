@@ -5,7 +5,6 @@ import AdminRoutes from './Pages/Admin/AdminRoutes'
 import ProviderRoutes from './Pages/Provider/ProviderRoutes'
 import UserRoutes from './Pages/User/UserRoutes';
 
-import UserRoutes from './Pages/User/UserRoutes';
 
 function App() {
 

@@ -15,7 +15,6 @@ import AdminLogin from './AdminLogin'
 function AdminRoutes() {
   return (
     <div>
-      <h1>Admin route</h1>
       <Routes>
         {/* <Route path='dashboard' element={<AdminDashboard/>} /> */}
         <Route path="/dashboard" element={<AdminDashboard />} />
