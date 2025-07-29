@@ -19,6 +19,26 @@ export default function UserRoutes() {
 
 
   return (
+<<<<<<< vaishnavi
+   
+            <Routes>
+             
+              <Route path="/" element={<HomePage />} />
+              <Route path="register" element={<UserRegister />} />
+              <Route path="login" element={<UserLogin />} />
+              <Route path="explore" element={<ExploreTurfs />} />
+              <Route path="turf/:id" element={<TurfDetailsPage />} />
+              <Route path="book/:id" element={<BookTurfPage />} />
+              <Route path="my-bookings" element={<MyBookings />} />
+              <Route path="cancel/:id" element={<CancelBooking />} />
+              <Route path="profile" element={<MyProfile />} />
+              <Route path="profile/edit" element={<EditProfile />} />
+            </Routes>
+          
+  );
+}
+
+=======
     <Routes>
          <Route
         path="/"
@@ -49,3 +69,4 @@ export default function UserRoutes() {
     </Routes>
   )
 }
+>>>>>>> main

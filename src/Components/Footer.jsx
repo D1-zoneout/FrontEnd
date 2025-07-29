@@ -1,11 +1,7 @@
-import React from 'react'
-
-function Footer() {
+export default function Footer() {
   return (
-    <div>
-      <div className='m-8  bg-red-50'><h1> vaishnavi learning</h1></div>
-    </div>
-  )
+    <footer className="bg-indigo-600 text-white p-4 mt-8 text-center">
+      <p>&copy; {new Date().getFullYear()} Turf Booking App. All rights reserved.</p>
+    </footer>
+  );
 }
-
-export default Footer
