@@ -1,7 +1,5 @@
 import React from 'react';
 import { Route, Routes, Outlet } from 'react-router-dom';
-import UserSidebar from '../../components/User/UserSidebar'; // adjust path if needed
-import Footer from '../../Components/common/Fotter';
 
 import BookTurfPage from './BookTurfPage';
 import CancelBooking from './CancelBooking';
@@ -19,10 +17,10 @@ import UserRegister from './UserRegister';
 import UserReviews from './UserReviews';
 import BookingConfirmed from './BookingConfirmed';
 import PaymentPage from './PaymentPage';
+import HomePage from './HomePage';
 
-const UserRoutes = () => {
+export default function  UserRoutes ()  {
   return (
-<<<<<<< vaishnavi
    
             <Routes>
              
@@ -32,39 +30,19 @@ const UserRoutes = () => {
               <Route path="explore" element={<ExploreTurfs />} />
               <Route path="turf/:id" element={<TurfDetailsPage />} />
               <Route path="book/:id" element={<BookTurfPage />} />
+              <Route path="booking-confirmed" element={<BookingConfirmed />} />
+              <Route path="payment" element={<PaymentPage />} />
               <Route path="my-bookings" element={<MyBookings />} />
               <Route path="cancel/:id" element={<CancelBooking />} />
+              <Route path="notifications" element={<Notifications />} />
+              <Route path="reviews" element={<UserReviews />} />
+              <Route path="payments" element={<Payments />} />
+              <Route path="dashboard" element={<UserDashBoard />} />
+              <Route path="contact-us" element={<ContactUs />} />
               <Route path="profile" element={<MyProfile />} />
               <Route path="profile/edit" element={<EditProfile />} />
             </Routes>
           
-  );
+  ); 
 }
 
-=======
-    <Routes>
-      <Route element={<UserLayout />}>
-        <Route path="/" element={<UserDashBoard />} />
-        <Route path="explore" element={<ExploreTurfs />} />
-        <Route path="book" element={<BookTurfPage />} />
-        <Route path="payment" element={<PaymentPage />} />
-        <Route path="booking-confirmed" element={<BookingConfirmed />} />
-
-        <Route path="cancel" element={<CancelBooking />} />
-        <Route path="contact" element={<ContactUs />} />
-        <Route path="edit-profile" element={<EditProfile />} />
-        <Route path="my-bookings" element={<MyBookings />} />
-        <Route path="my-profile" element={<MyProfile />} />
-        <Route path="notifications" element={<Notifications />} />
-        <Route path="payments" element={<Payments />} />
-        <Route path="turf-details/:id" element={<TurfDetailsPage />} />
-        <Route path="reviews" element={<UserReviews />} />
-      </Route>
-
-      {/* Login and Register should not show sidebar/footer */}
-      <Route path="login" element={<UserLogin />} />
-      <Route path="register" element={<UserRegister />} />
-    </Routes>
-  )
-}
->>>>>>> main

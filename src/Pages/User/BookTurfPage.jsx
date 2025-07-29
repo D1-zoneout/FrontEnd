@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import UserNavbar from "../../Components/User/UserNavbar";
@@ -8,6 +8,7 @@ import UserSidebar from "../../Components/User/UserSidebar";
 export default function BookTurfPage() {
   const { id } = useParams();
   const location = useLocation();
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
 
   
@@ -39,10 +40,17 @@ export default function BookTurfPage() {
 
   const handleBook = () => {
     if (!selectedDate || !selectedSlot) {
-      alert("❗ Please select a date and a slot to confirm your booking.");
+      alert("Please select date and time slot.");
       return;
     }
-    alert(`✅ You booked "${turf.name}" on ${selectedDate.toDateString()} at ${selectedSlot}`);
+
+    navigate("/user/payment", {
+      state: {
+        turfName: turf.name,
+        slotTime: `${selectedDate.toDateString()} at ${selectedSlot}`,
+        price: turf.rate
+      }
+    });
   };
 
   const bookedSlots = selectedDate ? bookedSlotsByDate[formatDate(selectedDate)] || [] : [];
