@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import ProviderNavbar from '../../Components/ProviderNavbar';
 
 function AddTurf() {
   const [info, setInfo] = useState({
@@ -44,6 +45,8 @@ function AddTurf() {
   };
 
   return (
+    <>
+    <ProviderNavbar /> 
     <div className="min-h-screen flex items-center justify-center bg-white px-4 py-12">
       <div className="w-full max-w-2xl bg-white p-8 rounded-xl shadow-md">
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Add Turf</h2>
@@ -97,7 +100,8 @@ function AddTurf() {
           </div>
         </div>
       </div>
-    </div>
+    </div></>
+   
   );
 }
 

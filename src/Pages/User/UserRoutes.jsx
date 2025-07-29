@@ -1,51 +1,51 @@
-import React from 'react'
-import { Routes, Route, Outlet } from 'react-router-dom';
-import UserSidebar from '../../Components/User/UserSidebar';
-import Notifications from './Notifications'
-import UserLogin from './UserLogin'
-import ContactUs from './ContactUs'
-import Payments from './Payments'
-import UserReviews from './UserReviews';
-import ExploreTurfs from './ExploreTurfs';
-import TurfDetailsPage from './TurfDetailsPage';
+import React from 'react';
+import { Route, Routes, Outlet } from 'react-router-dom';
+import UserSidebar from '../../components/User/UserSidebar'; // adjust path if needed
+import Footer from '../../Components/common/Fotter';
+
 import BookTurfPage from './BookTurfPage';
-import MyBookings from './MyBookings';
 import CancelBooking from './CancelBooking';
-import MyProfile from './MyProfile';
+import ContactUs from './ContactUs';
 import EditProfile from './EditProfile';
+import ExploreTurfs from './ExploreTurfs';
+import MyBookings from './MyBookings';
+import MyProfile from './MyProfile';
+import Notifications from './Notifications';
+import Payments from './Payments';
+import TurfDetailsPage from './TurfDetailsPage';
+import UserDashBoard from './UserDashBoard';
+import UserLogin from './UserLogin';
+import UserRegister from './UserRegister';
+import UserReviews from './UserReviews';
+import BookingConfirmed from './BookingConfirmed';
+import PaymentPage from './PaymentPage';
 
-
-export default function UserRoutes() {
-
-
+const UserRoutes = () => {
   return (
     <Routes>
-         <Route
-        path="/"
-        element={
-          <div className="flex">
-            <UserSidebar />
-            <main className="flex-1 p-4 bg-gray-50 min-h-screen">
-              <Outlet />
-            </main>
-          </div>
-        }
-      >
-        <Route path="dashboard" element={<UserDashboard />} />
-        <Route path="login" element={<UserLogin />} />
-        <Route path="signup" element={<UserLogin />} />
+      <Route element={<UserLayout />}>
+        <Route path="/" element={<UserDashBoard />} />
+        <Route path="explore" element={<ExploreTurfs />} />
         <Route path="book" element={<BookTurfPage />} />
+        <Route path="payment" element={<PaymentPage />} />
+        <Route path="booking-confirmed" element={<BookingConfirmed />} />
+
         <Route path="cancel" element={<CancelBooking />} />
         <Route path="contact" element={<ContactUs />} />
-        <Route path="explore" element={<ExploreTurfs />} />
-        <Route path="bookings" element={<MyBookings />} />
-        <Route path="payments" element={<Payments />} />
-        <Route path="reviews" element={<UserReviews />} />
-        <Route path="notifications" element={<Notifications />} />
-        <Route path="profile" element={<MyProfile />} />
         <Route path="edit-profile" element={<EditProfile />} />
-        <Route path="*" element={<UserDashboard />} />
+        <Route path="my-bookings" element={<MyBookings />} />
+        <Route path="my-profile" element={<MyProfile />} />
+        <Route path="notifications" element={<Notifications />} />
+        <Route path="payments" element={<Payments />} />
+        <Route path="turf-details/:id" element={<TurfDetailsPage />} />
+        <Route path="reviews" element={<UserReviews />} />
       </Route>
+
+      {/* Login and Register should not show sidebar/footer */}
+      <Route path="login" element={<UserLogin />} />
+      <Route path="register" element={<UserRegister />} />
     </Routes>
-  )
-}
+  );
+};
+
+export default UserRoutes;

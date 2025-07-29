@@ -17,7 +17,7 @@ export default function ExploreTurfs() {
             <p className="text-gray-500">Location: {turf.location}</p>
             <p className="text-gray-500">Type: {turf.type}</p>
             <p className="text-indigo-500 font-bold">Rate: ₹{turf.rate}/hr</p>
-            <Link to={`/turf/${turf.id}`} className="text-indigo-500 hover:underline mt-2 block">View Details</Link>
+            <Link to={`/user/turf-details/${turf.id}`} className="text-indigo-500 hover:underline mt-2 block">View Details</Link>
           </div>
         ))}
       </div>

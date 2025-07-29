@@ -5,7 +5,6 @@ import ProviderSidebar from '../../Components/ProviderSidebar';
 function ManagePricing() {
   return (
     <>
-      <ProviderSidebar />
       <ProviderNavbar />
 
       <div className="ml-60 pt-20 px-6">

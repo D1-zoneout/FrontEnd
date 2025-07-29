@@ -33,11 +33,13 @@ function BookingRequests() {
   };
 
   return (
-    <div className="min-h-screen bg-white px-6 py-10">
-      {/* Back to Dashboard Button */}
-      <button
-        onClick={() => navigate('/provider/dashboard')}
-        className="mb-6 text-sm text-indigo-600 hover:underline"
+    <>
+      <ProviderNavbar />
+      <div className="min-h-screen bg-white px-6 py-10">
+        {/* Back to Dashboard Button */}
+        <button
+          onClick={() => navigate('/provider/dashboard')}
+          className="mb-6 text-sm text-indigo-600 hover:underline"
       >
         ← Back to Dashboard
       </button>
@@ -111,6 +113,7 @@ function BookingRequests() {
         </table>
       </div>
     </div>
+    </>
   );
 }
 

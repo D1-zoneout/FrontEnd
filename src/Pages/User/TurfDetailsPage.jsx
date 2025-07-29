@@ -16,7 +16,7 @@ export default function TurfDetailsPage() {
         <h1 className="text-3xl text-indigo-500 font-bold mb-4">{turf.name}</h1>
         <p className="text-gray-700 mb-2">{turf.description}</p>
         <p className="text-indigo-500 font-bold mb-4">Rate: ₹{turf.rate}/hr</p>
-        <Link to={`/book/${id}`} className="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg shadow">Book Now</Link>
+        <Link to={`/user/book`} className="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg shadow">Book Now</Link>
       </div>
     </div>
   );

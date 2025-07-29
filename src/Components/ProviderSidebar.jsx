@@ -5,7 +5,7 @@ function ProviderSidebar() {
   return (
     <aside className="w-64 h-screen pt-20 fixed bg-white border-r border-gray-200 shadow-sm">
       <nav className="flex flex-col gap-2 px-6 text-sm font-medium text-gray-700">
-        <Link to="/provider/dashboard" className="py-2 hover:text-indigo-600">Dashboard</Link>
+        {/* <Link to="/provider/dashboard" className="py-2 hover:text-indigo-600">Dashboard</Link> */}
         <Link to="/provider/add-turf" className="py-2 hover:text-indigo-600">Add Turf</Link>
         <Link to="/provider/manage-pricing/:turfId" className="py-2 hover:text-indigo-600">Manage Pricing</Link>
         <Link to="/provider/manage-slots/:turfId" className="py-2 hover:text-indigo-600">Manage Slots</Link>
