@@ -20,7 +20,7 @@ const HomePage = () => {
           </h1>
           <p className="text-xl mb-6">Book your favorite turf with ease. Anywhere. Anytime.</p>
           <Link
-            to="/explore"
+            to="/user/explore"
             className="bg-white text-green-700 font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition"
           >
             Explore Turfs

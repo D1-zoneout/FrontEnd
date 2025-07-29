@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import UserNavbar from "../../Components/User/UserNavbar";
-import UserSidebar from "../../Components/User/UserSidebar";
+import UserNavbar from "../../Components/User/UserHomeNavbar";
+import UserSidebar from "../../Components/User/UserHomeSidebar";
 
 export default function BookTurfPage() {
   const { id } = useParams();

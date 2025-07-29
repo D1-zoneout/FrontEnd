@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import UserNavbar from "../../Components/User/UserNavbar";
-import UserSidebar from "../../Components/User/UserSidebar";
+import UserNavbar from "../../Components/User/UserHomeNavbar";
+import UserSidebar from "../../Components/User/UserHomeSidebar"
 import TurfCard from "../../Components/User/TurfCard";
 
 import Turf1 from "../../assets/turf1.jpg";
