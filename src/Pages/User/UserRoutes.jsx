@@ -1,8 +1,11 @@
-import { Routes, Route } from 'react-router-dom';
-
-import UserRegister from './UserRegister';
-import UserLogin from './UserLogin';
-import HomePage from './HomePage';
+import React from 'react'
+import { Routes, Route, Outlet } from 'react-router-dom';
+import UserSidebar from '../../Components/User/UserSidebar';
+import Notifications from './Notifications'
+import UserLogin from './UserLogin'
+import ContactUs from './ContactUs'
+import Payments from './Payments'
+import UserReviews from './UserReviews';
 import ExploreTurfs from './ExploreTurfs';
 import TurfDetailsPage from './TurfDetailsPage';
 import BookTurfPage from './BookTurfPage';

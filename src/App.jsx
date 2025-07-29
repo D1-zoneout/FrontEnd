@@ -6,7 +6,6 @@ import ProviderRoutes from './Pages/Provider/ProviderRoutes'
 import UserRoutes from './Pages/User/UserRoutes';
 
 
-
 function App() {
 
   return (
