@@ -18,7 +18,7 @@ export default function UserRoutes() {
   return (
    
             <Routes>
-              <Route pa/>
+             
               <Route path="/" element={<HomePage />} />
               <Route path="register" element={<UserRegister />} />
               <Route path="login" element={<UserLogin />} />
@@ -33,3 +33,4 @@ export default function UserRoutes() {
           
   );
 }
+
