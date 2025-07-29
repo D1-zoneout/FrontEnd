@@ -22,6 +22,26 @@ import PaymentPage from './PaymentPage';
 
 const UserRoutes = () => {
   return (
+<<<<<<< vaishnavi
+   
+            <Routes>
+             
+              <Route path="/" element={<HomePage />} />
+              <Route path="register" element={<UserRegister />} />
+              <Route path="login" element={<UserLogin />} />
+              <Route path="explore" element={<ExploreTurfs />} />
+              <Route path="turf/:id" element={<TurfDetailsPage />} />
+              <Route path="book/:id" element={<BookTurfPage />} />
+              <Route path="my-bookings" element={<MyBookings />} />
+              <Route path="cancel/:id" element={<CancelBooking />} />
+              <Route path="profile" element={<MyProfile />} />
+              <Route path="profile/edit" element={<EditProfile />} />
+            </Routes>
+          
+  );
+}
+
+=======
     <Routes>
       <Route element={<UserLayout />}>
         <Route path="/" element={<UserDashBoard />} />
@@ -45,7 +65,6 @@ const UserRoutes = () => {
       <Route path="login" element={<UserLogin />} />
       <Route path="register" element={<UserRegister />} />
     </Routes>
-  );
-};
-
-export default UserRoutes;
+  )
+}
+>>>>>>> main
