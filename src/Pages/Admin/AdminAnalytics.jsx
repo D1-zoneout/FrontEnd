@@ -13,6 +13,7 @@ const userData = [
   { name: 'Apr', users: 500 },
   { name: 'May', users: 600 },
   { name: 'Jun', users: 750 },
+  { name: 'June', users: 990 },
 ]
 
 const bookingData = [
