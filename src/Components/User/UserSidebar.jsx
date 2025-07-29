@@ -9,7 +9,7 @@ const links = [
   { label: 'Reviews', path: '/user/reviews' },
   { label: 'Profile', path: '/user/profile' },
   { label: 'Contact Us', path: '/user/contact' },
-  { label: 'Logout', path: '/login' },
+  { label: 'Logout', path: '/user/login' },
 ];
 
 const UserSidebar = () => {
