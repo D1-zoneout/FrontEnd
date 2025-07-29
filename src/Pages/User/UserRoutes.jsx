@@ -1,7 +1,4 @@
 import { Routes, Route } from 'react-router-dom';
-
-import UserRegister from './UserRegister';
-import UserLogin from './UserLogin';
 import HomePage from './HomePage';
 import ExploreTurfs from './ExploreTurfs';
 import TurfDetailsPage from './TurfDetailsPage';
@@ -18,10 +15,8 @@ export default function UserRoutes() {
   return (
    
             <Routes>
-              <Route pa/>
-              <Route path="/" element={<HomePage />} />
-              <Route path="register" element={<UserRegister />} />
-              <Route path="login" element={<UserLogin />} />
+             
+              <Route path="/" element={<HomePage />} /> 
               <Route path="explore" element={<ExploreTurfs />} />
               <Route path="turf/:id" element={<TurfDetailsPage />} />
               <Route path="book/:id" element={<BookTurfPage />} />

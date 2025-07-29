@@ -10,7 +10,7 @@ import ReviewModeration from './ReviewModeration'
 import AdminAnalytics from './AdminAnalytics'
 import Notification from './Notification'
 import AdminSettings from './AdminSettings'
-import AdminLogin from './AdminLogin'
+import AdminLogin from './../Auth/AdminLogin';
 
 function AdminRoutes() {
   return (

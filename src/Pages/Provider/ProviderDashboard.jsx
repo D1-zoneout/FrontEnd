@@ -1,6 +1,6 @@
 import React from "react";
-import ProviderNavbar from "../../Components/ProviderNavbar";
-import ProviderSidebar from "../../Components/ProviderSidebar";
+import ProviderNavbar from "../../Components/Provider/ProviderNavbar";
+import ProviderSidebar from "../../Components/Provider/ProviderSidebar";
 
 function ProviderDashboard() {
   return (
