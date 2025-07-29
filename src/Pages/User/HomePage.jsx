@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import UserFooter from '../../Components/User/UserFooter';
-import UserNavbar from '../../Components/User/UserNavbar';
+import UserFooter from '../../Components/User/UserHomeFooter';
+import UserNavbar from '../../Components/User/UserHomeNavbar';
 
 const HomePage = () => {
   return (
