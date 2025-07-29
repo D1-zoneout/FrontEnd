@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from 'react-router-dom';
 import ProviderSidebar from "../../Components/ProviderSidebar";
-import Footer from "../../Components/common/Fotter";
+import UserFooter from "../../Components/User/UserHomeFooter";
 
 const ProviderLayout = () => {
   return (
@@ -22,7 +22,7 @@ const ProviderLayout = () => {
       </div>
 
       {/* Footer */}
-      <Footer />
+      <UserFooter />
     </div>
   );
 };

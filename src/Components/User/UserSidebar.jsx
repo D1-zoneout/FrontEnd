@@ -4,11 +4,11 @@ import { Link, useLocation } from 'react-router-dom';
 const links = [
   // { label: 'Dashboard', path: '/user/dashboard' },
   { label: 'Explore Turfs', path: '/user/explore' },
-  { label: 'My Bookings', path: '/user/bookings' },
+  { label: 'My Bookings', path: '/user/my-bookings' },
   { label: 'Payments', path: '/user/payments' },
   { label: 'Reviews', path: '/user/reviews' },
   { label: 'Profile', path: '/user/profile' },
-  { label: 'Contact Us', path: '/user/contact' },
+  { label: 'Contact-us', path: '/user/contact-us' },
   { label: 'Logout', path: '/user/login' },
 ];
 
