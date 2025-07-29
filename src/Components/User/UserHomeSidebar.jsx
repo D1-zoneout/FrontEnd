@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const links = [
-  { label: 'Dashboard', path: '/user/dashboard' },
+  // { label: 'Dashboard', path: '/user/dashboard' },
   { label: 'Explore Turfs', path: '/user/explore' },
   { label: 'My Bookings', path: '/user/bookings' },
   { label: 'Payments', path: '/user/payments' },

@@ -42,7 +42,7 @@ function TurfList() {
 
   return (
     <div className="flex min-h-screen bg-gray-100 font-sans">
-      <ProviderSidebar />
+      {/* <ProviderSidebar /> */}
       <div className="flex-1 ml-64">
         <ProviderNavbar />
         <main className="p-6 mt-16">

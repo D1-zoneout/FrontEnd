@@ -38,6 +38,8 @@ const PaymentManagement = () => {
   }, []);
 
   return (
+    <>
+      <ProviderNavbar />
     <div className="min-h-screen bg-white p-6 md:p-12 text-gray-800">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-3xl font-bold mb-6">Payment Management</h1>
@@ -89,6 +91,7 @@ const PaymentManagement = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

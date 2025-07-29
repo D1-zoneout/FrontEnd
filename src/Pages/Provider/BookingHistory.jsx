@@ -39,6 +39,7 @@ const BookingHistory = () => {
   }, []);
 
   return (
+    
     <div className="min-h-screen bg-white text-gray-800 p-6 md:p-12">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-3xl font-semibold mb-6">Booking History</h1>

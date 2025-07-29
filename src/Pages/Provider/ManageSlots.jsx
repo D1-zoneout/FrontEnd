@@ -32,6 +32,8 @@ function ManageSlots() {
   };
 
   return (
+    <>
+      <ProviderNavbar />
     <div className="min-h-screen bg-white px-6 py-10">
       {/* Back to Dashboard Button */}
       <button
@@ -121,6 +123,7 @@ function ManageSlots() {
         </table>
       </div>
     </div>
+    </>
   );
 }
 
