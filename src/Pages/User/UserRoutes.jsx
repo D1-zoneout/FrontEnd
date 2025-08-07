@@ -23,10 +23,11 @@ export default function  UserRoutes ()  {
   return (
    
             <Routes>
-             
-              <Route path="/" element={<HomePage />} />
+              
+              {/* <Route path="/" element={<HomePage />} /> */}
               <Route path="register" element={<UserRegister />} />
               <Route path="login" element={<UserLogin />} />
+              <Route path = "payment" element={<Payments/>}/>
               <Route path="explore" element={<ExploreTurfs />} />
               <Route path="turf/:id" element={<TurfDetailsPage />} />
               <Route path="book/:id" element={<BookTurfPage />} />
@@ -41,6 +42,7 @@ export default function  UserRoutes ()  {
               <Route path="contact-us" element={<ContactUs />} />
               <Route path="profile" element={<MyProfile />} />
               <Route path="profile/edit" element={<EditProfile />} />
+              <Route path="dashboard" element={<UserDashboard />} />
             </Routes>
           
   ); 

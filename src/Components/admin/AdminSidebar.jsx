@@ -3,14 +3,13 @@ import { Link, useLocation } from 'react-router-dom'
 
 const menuItems = [
   'Dashboard',
-  'Analytics',
-  'Manage Users',
-  'Manage Providers',
   'Turfs',
+  'Manage Providers',
+  'Manage Users',
   'Bookings',
   'Payments',
-  'Reviews',
-  'Settings'
+  'Reviews'
+  
 ]
 
 const AdminSidebar = () => {

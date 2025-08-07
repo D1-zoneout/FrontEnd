@@ -8,8 +8,7 @@ import EditTurf from './EditTurf';
 import TurfDetails from './TurfDetails';
 import ManageSlots from './ManageSlots';
 import ManagePricing from './ManagePricing';
-import BookingRequests from './BookingRequests';
-import BookingHistory from './BookingHistory';
+import Booking from "./Booking";
 import PaymentManagement from './PaymentManagement';
 import TurfReviews from './TurfReviews';
 import TurfAnalytics from './TurfAnalytics';
@@ -20,29 +19,24 @@ import ProviderLayout from './ProviderLayout';
 
 function ProviderRoutes() {
   return (
-    <Routes>
-      {/* Layout for all authenticated provider routes */}
-      <Route element={<ProviderLayout />}>
-        <Route path="/" element={<ProviderDashboard />} />
-        <Route path="add-turf" element={<AddTurf />} />
-        <Route path="turfs" element={<TurfList />} />
-        <Route path="turfs/:turfId/edit" element={<EditTurf />} />
-        <Route path="turfs/:turfId" element={<TurfDetails />} />
-        <Route path="manage-slots/:turfId" element={<ManageSlots />} />
-        <Route path="manage-pricing/:turfId" element={<ManagePricing />} />
-        <Route path="booking-requests" element={<BookingRequests />} />
-        <Route path="booking-history" element={<BookingHistory />} />
-        <Route path="payments" element={<PaymentManagement />} />
-        <Route path="reviews" element={<TurfReviews />} />
-        <Route path="analytics" element={<TurfAnalytics />} />
-        <Route path="profile" element={<ProviderProfile />} />
-      </Route>
-
-      {/* Routes without footer/sidebar */}
-      <Route path="login" element={<ProviderLogin />} />
-      <Route path="register" element={<ProviderSignUp />} />
-    </Routes>
-  );
+   <Routes>
+     <Route path="login" element={<ProviderLogin />} />
+     <Route path="register" element={<ProviderSignUp />} />
+     <Route path="add-turf" element={<AddTurf />} />
+        <Route path="turfs" element={<TurfList/>} />
+        <Route path="turfs/:turfId/edit" element={<EditTurf/>} />
+        <Route path="turfs/:turfId" element={<TurfDetails/>} />
+        <Route path="manage-slots/:turfId" element={<ManageSlots/>} />
+        <Route path="manage-pricing/:turfId" element={<ManagePricing/>} />
+        <Route path="booking-requests" element={<BookingRequests/>} />
+        <Route path="booking-history" element={<BookingHistory/>} />
+        <Route path="payments" element={<PaymentManagement/>} />
+        <Route path="reviews" element={<TurfReviews/>} />
+        <Route path="analytics" element={<TurfAnalytics/>} />
+        <Route path="profile" element={<ProviderProfile/>} />
+        <Route path = 'dashboard' element = {<ProviderDashboard/>}/>
+   </Routes>
+  )
 }
 
 export default ProviderRoutes;
