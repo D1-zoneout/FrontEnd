@@ -8,8 +8,7 @@ import EditTurf from './EditTurf';
 import TurfDetails from './TurfDetails';
 import ManageSlots from './ManageSlots';
 import ManagePricing from './ManagePricing';
-import BookingRequests from './BookingRequests';
-import BookingHistory from './BookingHistory';
+import Booking from "./Booking";
 import PaymentManagement from './PaymentManagement';
 import TurfReviews from './TurfReviews';
 import TurfAnalytics from './TurfAnalytics';
@@ -26,8 +25,7 @@ function ProviderRoutes() {
         <Route path="turfs/:turfId" element={<TurfDetails/>} />
         <Route path="manage-slots/:turfId" element={<ManageSlots/>} />
         <Route path="manage-pricing/:turfId" element={<ManagePricing/>} />
-        <Route path="booking-requests" element={<BookingRequests/>} />
-        <Route path="booking-history" element={<BookingHistory/>} />
+        <Route path="booking" element={<Booking/>} />
         <Route path="payments" element={<PaymentManagement/>} />
         <Route path="reviews" element={<TurfReviews/>} />
         <Route path="analytics" element={<TurfAnalytics/>} />

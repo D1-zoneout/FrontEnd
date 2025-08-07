@@ -1,84 +1,86 @@
-import React from 'react'
-import AdminNavbar from '../../Components/Admin/AdminNavbar'
-import AdminSidebar from '../../Components/Admin/AdminSidebar'
-
+import React, { useState } from "react";
+import AdminNavbar from '../../Components/admin/AdminNavbar';
+import AdminSidebar from '../../Components/admin/AdminSidebar';
 const reviews = [
   {
     id: 1,
-    user: 'Rohit Sharma',
-    turf: 'Sky Turf',
+    userId: "U001",
+    turfId: "T001",
     rating: 4,
-    comment: 'Great place!',
-    date: '2025-07-23',
-    approved: true,
+    review: "Great turf and well maintained!"
   },
   {
     id: 2,
-    user: 'Anjali Mehta',
-    turf: 'Sunset Arena',
-    rating: 2,
-    comment: 'Not well maintained',
-    date: '2025-07-22',
-    approved: false,
+    userId: "U002",
+    turfId: "T002",
+    rating: 5,
+    review: "Loved the experience. Highly recommend."
   },
-]
+  {
+    id: 3,
+    userId: "U003",
+    turfId: "T003",
+    rating: 3,
+    review: "Average turf. Needs better lighting."
+  }
+];
 
-const ReviewModeration = () => {
+export default function ReviewModeration() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [allReviews, setAllReviews] = useState(reviews);
+
+  const handleDelete = (id) => {
+    const updatedReviews = allReviews.filter((r) => r.id !== id);
+    setAllReviews(updatedReviews);
+  };
+
   return (
-    <div className="min-h-screen flex bg-gray-100 text-gray-800">
-      <AdminSidebar />
-      <div className="flex-1">
-        <AdminNavbar />
-        <div className="p-6">
-          <h2 className="text-2xl font-semibold mb-6">Review Moderation</h2>
+    <div className="flex h-screen bg-gray-50 text-gray-800 overflow-hidden">
+      <div className="fixed top-0 left-0 h-full w-64 z-10 shadow-md bg-white">
+        <AdminSidebar open={sidebarOpen} setOpen={setSidebarOpen} />
+      </div>
+
+      <div className="flex flex-col flex-1 ml-64">
+        <div className="fixed top-0 left-64 right-0 z-10 shadow bg-white">
+          <AdminNavbar setOpen={setSidebarOpen} />
+        </div>
+
+        <div className="mt-20 overflow-y-auto h-[calc(100vh-5rem)] px-6 py-4">
+          <h2 className="text-2xl font-bold text-indigo-600 mb-6">Review Moderation</h2>
 
           <div className="overflow-x-auto">
-            <table className="min-w-full bg-white rounded-lg shadow overflow-hidden">
+            <table className="min-w-full bg-white border border-gray-300 shadow rounded-lg">
               <thead>
-                <tr className="bg-indigo-600 text-white text-left">
-                  <th className="px-6 py-3 first:rounded-tl-lg last:rounded-tr-lg">User</th>
-                  <th className="px-6 py-3">Turf</th>
-                  <th className="px-6 py-3">Rating</th>
-                  <th className="px-6 py-3">Comment</th>
-                  <th className="px-6 py-3">Date</th>
-                  <th className="px-6 py-3 first:rounded-tr-lg last:rounded-tr-lg">Status</th>
+                <tr className="bg-indigo-100 text-indigo-800">
+                  <th className="py-3 px-6 border border-gray-300 text-left">User ID</th>
+                  <th className="py-3 px-6 border border-gray-300 text-left">Turf ID</th>
+                  <th className="py-3 px-6 border border-gray-300 text-left">Rating</th>
+                  <th className="py-3 px-6 border border-gray-300 text-left">Review</th>
+                  <th className="py-3 px-6 border border-gray-300 text-left">Action</th>
                 </tr>
               </thead>
-
-              <tbody className="divide-y divide-gray-200">
-                {reviews.map((review, idx) => (
-                  <tr
-                    key={review.id}
-                    className={`hover:bg-gray-50 ${
-                      idx === reviews.length - 1 ? 'last:rounded-b-lg' : ''
-                    }`}
-                  >
-                    <td className="px-6 py-4 first:rounded-bl-lg">{review.user}</td>
-                    <td className="px-6 py-4">{review.turf}</td>
-                    <td className="px-6 py-4">{review.rating}⭐</td>
-                    <td className="px-6 py-4">{review.comment}</td>
-                    <td className="px-6 py-4">{review.date}</td>
-                    <td className="px-6 py-4 last:rounded-br-lg">
-                      <span
-                        className={`px-2 py-1 text-sm rounded-full ${
-                          review.approved
-                            ? 'bg-green-100 text-green-800'
-                            : 'bg-yellow-100 text-yellow-800'
-                        }`}
+              <tbody>
+                {allReviews.map((review) => (
+                  <tr key={review.id} className="hover:bg-gray-50">
+                    <td className="py-3 px-6 border border-gray-300">{review.userId}</td>
+                    <td className="py-3 px-6 border border-gray-300">{review.turfId}</td>
+                    <td className="py-3 px-6 border border-gray-300">{review.rating}</td>
+                    <td className="py-3 px-6 border border-gray-300">{review.review}</td>
+                    <td className="py-3 px-6 border border-gray-300">
+                      <button
+                        onClick={() => handleDelete(review.id)}
+                        className="bg-red-500 hover:bg-red-600 text-white px-4 py-1 rounded-lg"
                       >
-                        {review.approved ? 'Approved' : 'Pending'}
-                      </span>
+                        Delete
+                      </button>
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-
         </div>
       </div>
     </div>
-  )
+  );
 }
-
-export default ReviewModeration

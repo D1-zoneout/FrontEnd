@@ -7,9 +7,6 @@ import ApproveTurfs from './ApproveTurfs'
 import ViewAllbookings from './ViewAllbookings'
 import ViewPayment from './ViewPayment'
 import ReviewModeration from './ReviewModeration'
-import AdminAnalytics from './AdminAnalytics'
-import Notification from './Notification'
-import AdminSettings from './AdminSettings'
 import AdminLogin from './AdminLogin'
 
 function AdminRoutes() {
@@ -23,9 +20,6 @@ function AdminRoutes() {
 <Route path="/bookings" element={<ViewAllbookings />} />
 <Route path="/payments" element={<ViewPayment />} />
 <Route path="/reviews" element={<ReviewModeration />} />
-<Route path="/analytics" element={<AdminAnalytics />} />
-<Route path="/notifications" element={<Notification />} />
-<Route path="/settings" element={<AdminSettings/>} />
 <Route path="/login" element={<AdminLogin/>} />
 
             
