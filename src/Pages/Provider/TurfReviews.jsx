@@ -39,7 +39,7 @@ function TurfReviews() {
     <div className="min-h-screen bg-white px-6 py-10">
       {/* Back Button */}
       <button
-        onClick={() => navigate('/provider/dashboard')}
+        onClick={() => navigate('/provider/')}
         className="mb-6 text-sm text-indigo-600 hover:underline"
       >
         ← Back to Dashboard

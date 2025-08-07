@@ -5,7 +5,7 @@ import ProviderSidebar from "../../Components/ProviderSidebar";
 function ProviderDashboard() {
   return (
     <div className="flex min-h-screen bg-gray-100 font-sans">
-      <ProviderSidebar />
+      {/* <ProviderSidebar /> */}
 
       <div className="flex-1 ml-64">
         <ProviderNavbar />
